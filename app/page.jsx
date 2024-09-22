@@ -1,4 +1,5 @@
 import Feed from "@components/Feed";
+import { Suspense } from "react";
 
 const Home = () => (
   <section className='w-full flex-center flex-col'>
@@ -11,7 +12,10 @@ const Home = () => (
     SharePrompts is an open-source platform for the modern world to discover, create, and share creative prompts.
     </p>
 
+    <Suspense fallback={<div>Loading</div>}>
     <Feed />
+    </Suspense>
+    
   
   </section>
 );
