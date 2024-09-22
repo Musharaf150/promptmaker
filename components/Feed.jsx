@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 
 import PromptCard from "./PromptCard";
 
@@ -69,6 +69,7 @@ const Feed = () => {
 
   return (
     <section className='feed'>
+      <Suspense fallback={<div>Loading</div>}> 
       <form className='relative w-full flex-center'>
         <input
           type='text'
@@ -89,6 +90,7 @@ const Feed = () => {
       ) : (
         <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
       )}
+      </Suspense>
     </section>
   );
 };
